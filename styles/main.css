@@ -1,0 +1,176 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: table;
+
+  font-family: sans-serif;
+  background-color: #555;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#game {
+  display: inline-block;
+  padding: 10px;
+  background-color: #dfdfdf;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#board {
+  display: inline-block;
+}
+
+#board .board-row {
+  display: table-row;
+}
+
+#board .board-row:nth-child(1) .board-cell,
+#board .board-row:nth-child(2) .board-cell {
+  border-bottom: 3px solid white;
+}
+
+#board .board-row .board-cell:nth-child(1),
+#board .board-row .board-cell:nth-child(2) {
+  border-right: 3px solid white;
+}
+
+#board .board-cell {
+  display: table-cell;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+#board .board-cell:hover {
+  font-size: 3em;
+
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+#board .board-cell:not([data-player]){
+  background-color: transparent;
+
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+#board .board-cell:not([data-player]):hover {
+  background-color: #efefef;
+
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+/** PLAYER X THEME **/
+#board .board-cell[data-player=x],
+#players .player[data-player=x] {
+  background-color: #333333;
+  color: white;
+}
+
+#board .board-cell[data-player=x]::before,
+#players .player[data-player=x] span.sign::before {
+  content: 'X';
+}
+
+/** PLAYER O THEME **/
+#board .board-cell[data-player=o],
+#players .player[data-player=o] {
+  background-color: #FF5519;
+  color: white;
+}
+
+#board .board-cell[data-player=o]::before,
+#players .player[data-player=o] span.sign::before {
+  content: 'O';
+}
+
+#board .board-cell.win {
+  background-color: green;
+}
+
+#players .player:not([data-player]) span::before {
+  content: 'Waiting for player';
+}
+
+#players {
+  padding: 30px;
+  margin-top: 10px;
+  border-top: 1px solid #cfcfcf;
+}
+
+#players .player {
+  padding-right: 10px;
+  opacity: 0.5;
+}
+
+#players .player span.when-winner {
+  display: none;
+}
+
+#players[data-winner=x] .player[data-player=x] span.when-winner,
+#players[data-winner=o] .player[data-player=o] span.when-winner {
+  display: inline;
+}
+
+#players[data-winner=x] .player[data-player=o],
+#players[data-winner=o] .player[data-player=x] {
+  display: none;
+}
+
+#players .player[data-player].turn,
+#players[data-winner] .player {
+  opacity: 1;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:    0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+  box-shadow:         0px 0px 4px 1px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255,255,255,0.75);
+}
+
+#players .player,
+#players .player span.sign {
+  display: inline-block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#players .player span.sign {
+  font-weight: bold;
+  background-color: rgba(0,0,0,0.2);
+  padding: 10px;
+  -webkit-border-radius-right: none;
+  -moz-border-radius-right: none;
+  border-radius-right: none;
+}

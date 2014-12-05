@@ -1,0 +1,34 @@
+<head>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1">
+  <title>Meteor Tic Tac Toe</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="game">
+      <div id="board" data-player="{{player}}">
+        {{#each grid}}
+          {{> boardRow}}
+        {{/each}}
+      </div>
+      <div id="players" data-winner="{{winner}}">
+        <div class="player {{#if isPlayerTurn}}turn{{/if}}" data-player="{{player}}">
+          <span class="sign"></span> You <span class="when-winner">win!</span>
+        </div>
+        <div class="player {{#unless isPlayerTurn}}turn{{/unless}}" data-player="{{#unless isPending}}{{ rival }}{{/unless}}">
+          <span class="sign"></span>
+          {{#unless isPending}} Other dude <span class="when-winner">wins!</span>{{/unless}}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="boardRow">
+  <div class="board-row" data-row="{{index}}">
+    {{#each this.content}}
+    <div class="board-cell {{#if this.win}}win{{/if}}" data-column="{{this.index}}" data-player="{{this.content}}"></div>
+    {{/each}}
+  </div>
+</template>
+
