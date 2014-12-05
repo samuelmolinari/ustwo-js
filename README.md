@@ -77,7 +77,7 @@ Once the cell has been clicked, the current user instantly loses their turn by u
 
   ie: Wait for your opponent to play their turn. Now, open the console, select the cell they have played, and remove the ``data-player`` attribute. You can now play your turn on the same cell.
 
-  You are thinking "Why on earth did that dude implement it that way?". As any great teacher, my answer would be "because I want to make sure you are actually reading the doc".
+  You are thinking "Why on earth did that dude implement it that way?". Doh! Because I want to make sure you are actually reading the doc.
 
   So if you decide to play with your colleague, you can make them go insane. Thank me later.
 
